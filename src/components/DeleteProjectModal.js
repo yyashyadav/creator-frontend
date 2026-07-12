@@ -1,6 +1,7 @@
 "use client";
 
 import Modal from "@/components/Modal";
+import { btnSecondaryClass } from "@/lib/ui-classes";
 
 export default function DeleteProjectModal({
   open,
@@ -13,7 +14,7 @@ export default function DeleteProjectModal({
 
   return (
     <Modal open={open} onClose={onClose}>
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 dark:bg-red-950/50">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -31,10 +32,10 @@ export default function DeleteProjectModal({
         </svg>
       </div>
 
-      <h2 className="mt-4 text-xl font-bold text-zinc-900">Delete project?</h2>
-      <p className="mt-2 text-sm text-zinc-500">
+      <h2 className="mt-4 text-xl font-bold text-zinc-900 dark:text-zinc-50">Delete project?</h2>
+      <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
         Are you sure you want to delete{" "}
-        <span className="font-medium text-zinc-700">&quot;{project.title}&quot;</span>?
+        <span className="font-medium text-zinc-700 dark:text-zinc-200">&quot;{project.title}&quot;</span>?
         All scenes in this project will be permanently removed. This cannot be undone.
       </p>
 
@@ -43,7 +44,7 @@ export default function DeleteProjectModal({
           type="button"
           onClick={onClose}
           disabled={loading}
-          className="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 disabled:opacity-60"
+          className={`${btnSecondaryClass} disabled:opacity-60`}
         >
           Cancel
         </button>

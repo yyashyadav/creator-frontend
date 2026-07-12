@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { inputClass, labelClass } from "@/lib/ui-classes";
 
 function EyeIcon({ className }) {
   return (
@@ -59,7 +60,7 @@ export default function PasswordInput({
 
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-zinc-700">
+      <label htmlFor={id} className={labelClass}>
         {label}
       </label>
       <div className="relative mt-1.5">
@@ -70,13 +71,13 @@ export default function PasswordInput({
           minLength={minLength}
           value={value}
           onChange={onChange}
-          className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 pr-11 text-zinc-900 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100"
+          className={`${inputClass} pr-11`}
           placeholder={placeholder}
         />
         <button
           type="button"
           onClick={() => setVisible((prev) => !prev)}
-          className="absolute inset-y-0 right-0 flex items-center px-3 text-zinc-400 hover:text-zinc-600"
+          className="absolute inset-y-0 right-0 flex items-center px-3 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
           aria-label={visible ? "Hide password" : "Show password"}
         >
           {visible ? (

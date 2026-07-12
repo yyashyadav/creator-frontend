@@ -12,9 +12,9 @@ function formatDate(dateString) {
 
 function StatusBadge({ status }) {
   const styles = {
-    draft: "bg-zinc-100 text-zinc-600",
-    rendering: "bg-amber-100 text-amber-700",
-    completed: "bg-green-100 text-green-700",
+    draft: "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300",
+    rendering: "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
+    completed: "bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300",
   };
 
   return (
@@ -28,11 +28,11 @@ function StatusBadge({ status }) {
 
 export default function ProjectCard({ project, onRename, onDuplicate, onDelete }) {
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
+    <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <h3 className="truncate font-semibold text-zinc-900">{project.title}</h3>
-          <p className="mt-1 text-sm text-zinc-500">
+          <h3 className="truncate font-semibold text-zinc-900 dark:text-zinc-50">{project.title}</h3>
+          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
             {project.sceneCount} scene{project.sceneCount !== 1 ? "s" : ""} ·{" "}
             {project.totalDuration}s total
           </p>
@@ -53,19 +53,19 @@ export default function ProjectCard({ project, onRename, onDuplicate, onDelete }
         </Link>
         <button
           onClick={() => onRename(project)}
-          className="rounded-lg border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50"
+          className="rounded-lg border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-800"
         >
           Rename
         </button>
         <button
           onClick={() => onDuplicate(project.id)}
-          className="rounded-lg border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50"
+          className="rounded-lg border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-800"
         >
           Duplicate
         </button>
         <button
           onClick={() => onDelete(project)}
-          className="rounded-lg border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
+          className="rounded-lg border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50 dark:border-red-900 dark:text-red-400 dark:hover:bg-red-950/30"
         >
           Delete
         </button>

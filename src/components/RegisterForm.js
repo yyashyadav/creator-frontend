@@ -6,6 +6,7 @@ import { useState } from "react";
 import { registerUser } from "@/lib/auth-api";
 import { setAuth } from "@/lib/auth";
 import PasswordInput from "@/components/PasswordInput";
+import { inputClass, labelClass } from "@/lib/ui-classes";
 
 export default function RegisterForm() {
   const router = useRouter();
@@ -34,13 +35,13 @@ export default function RegisterForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-8 space-y-5">
       {error && (
-        <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
+        <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-950/40 dark:text-red-400">
           {error}
         </div>
       )}
 
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="name" className={labelClass}>
           Name
         </label>
         <input
@@ -49,13 +50,13 @@ export default function RegisterForm() {
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-1.5 w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-zinc-900 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100"
+          className={inputClass}
           placeholder="Your name"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="email" className={labelClass}>
           Email
         </label>
         <input
@@ -64,7 +65,7 @@ export default function RegisterForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mt-1.5 w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-zinc-900 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100"
+          className={inputClass}
           placeholder="you@example.com"
         />
       </div>
@@ -85,9 +86,9 @@ export default function RegisterForm() {
         {loading ? "Creating account..." : "Create account"}
       </button>
 
-      <p className="text-center text-sm text-zinc-500">
+      <p className="text-center text-sm text-zinc-500 dark:text-zinc-400">
         Already have an account?{" "}
-        <Link href="/login" className="font-medium text-violet-600 hover:underline">
+        <Link href="/login" className="font-medium text-violet-600 hover:underline dark:text-violet-400">
           Log in
         </Link>
       </p>

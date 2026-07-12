@@ -6,6 +6,7 @@ import { useState } from "react";
 import { loginUser } from "@/lib/auth-api";
 import { setAuth } from "@/lib/auth";
 import PasswordInput from "@/components/PasswordInput";
+import { inputClass, labelClass } from "@/lib/ui-classes";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -33,13 +34,13 @@ export default function LoginForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-8 space-y-5">
       {error && (
-        <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
+        <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-950/40 dark:text-red-400">
           {error}
         </div>
       )}
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="email" className={labelClass}>
           Email
         </label>
         <input
@@ -48,7 +49,7 @@ export default function LoginForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mt-1.5 w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-zinc-900 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100"
+          className={inputClass}
           placeholder="you@example.com"
         />
       </div>
@@ -69,9 +70,9 @@ export default function LoginForm() {
         {loading ? "Signing in..." : "Sign in"}
       </button>
 
-      <p className="text-center text-sm text-zinc-500">
+      <p className="text-center text-sm text-zinc-500 dark:text-zinc-400">
         Don&apos;t have an account?{" "}
-        <Link href="/register" className="font-medium text-violet-600 hover:underline">
+        <Link href="/register" className="font-medium text-violet-600 hover:underline dark:text-violet-400">
           Sign up
         </Link>
       </p>

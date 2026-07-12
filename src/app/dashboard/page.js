@@ -145,7 +145,7 @@ export default function DashboardPage() {
   if (loading) {
     return (
       <div className="flex min-h-full flex-1 items-center justify-center">
-        <p className="text-sm text-zinc-500">Loading dashboard...</p>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">Loading dashboard...</p>
       </div>
     );
   }
@@ -157,10 +157,10 @@ export default function DashboardPage() {
       <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-zinc-900">
+            <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
               Welcome, {user?.name}
             </h1>
-            <p className="mt-2 text-zinc-500">Manage your story projects</p>
+            <p className="mt-2 text-zinc-500 dark:text-zinc-400">Manage your story projects</p>
           </div>
 
           <button
@@ -173,15 +173,15 @@ export default function DashboardPage() {
         </div>
 
         {error && (
-          <div className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
+          <div className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-950/40 dark:text-red-400">
             {error}
           </div>
         )}
 
         {projects.length === 0 ? (
-          <div className="mt-10 rounded-2xl border border-dashed border-zinc-300 bg-white p-10 text-center">
-            <p className="text-sm text-zinc-500">No projects yet</p>
-            <p className="mt-1 text-xs text-zinc-400">
+          <div className="mt-10 rounded-2xl border border-dashed border-zinc-300 bg-white p-10 text-center dark:border-zinc-600 dark:bg-zinc-900">
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">No projects yet</p>
+            <p className="mt-1 text-xs text-zinc-400 dark:text-zinc-500">
               Create your first project to get started
             </p>
             <button
