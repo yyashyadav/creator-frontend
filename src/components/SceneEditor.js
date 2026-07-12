@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import AnimationPreview from "@/components/AnimationPreview";
 import DeleteSceneModal from "@/components/DeleteSceneModal";
+import VideoRenderPanel from "@/components/VideoRenderPanel";
 import { DIALOGUE_SHAPES, ShapePreview } from "@/components/DialogueBubble";
 import ScenePreviewFrame from "@/components/ScenePreviewFrame";
 import { getToken } from "@/lib/auth";
@@ -426,6 +427,10 @@ export default function SceneEditor({ projectId, initialScenes = [] }) {
             </div>
           </div>
         )}
+      </div>
+
+      <div className="mt-8">
+        <VideoRenderPanel projectId={projectId} sceneCount={scenes.length} />
       </div>
 
       <div className="mt-8">
